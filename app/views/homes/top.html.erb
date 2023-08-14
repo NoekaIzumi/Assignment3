@@ -1,23 +1,48 @@
 <html>
-<body>
- <h1>welcome to Bookers !!</h1>
-  <p>In Bookers,<br>
-    
-    you can share and exchange your opinions , inpressions , and emotions<br>
-    about various books!
-  </p>
+  <head>
+    <script src="https://kit.fontawesome.com/153870c081.js" crossorigin="anonymous"></script>
 
+  </head>
+<body>
   <header>
-   
-      <li>
-        <%= link_to "新規登録", new_user_registration_path %>
-      </li>
-      <li>
-        <%= link_to "ログイン", new_user_session_path %>
-      </li>
+
+
   </header>
+  <main>
+      <div class = "container">
+        <div class = "row">
+          <div class = "mx-auto col=11 col-sm-10 col-lg-8 col-xl-6">
+            <h1>welcome to <i class="fa-solid fa-book"></i>
+            Bookers !!</h1>
+            <p>In <i class="fa-solid fa-book"></i>Bookers,<br>
+            you can share and exchange your opinions , inpressions , and emotions
+            about various books!</p>
+
+            <div class= "btn-wrapper col-10 mx-auto">
+              <div class="row">
+                
+                <a class="btn btn-block sign_in" href= "new_user_session_path">
+                Log In
+                </a>
+              </div>
+              
+              <div class="row">
+                <%= link_to new_user_registration_path do %>
+                Sign Up
+                <% end %>
+              </div>
+            </div>
+
+
+
+
+
+          </div>
+        </div>
+      </div>
+  </main>
 </body>
 
-CopyRight Infratop.inc
+
 
 </html>
