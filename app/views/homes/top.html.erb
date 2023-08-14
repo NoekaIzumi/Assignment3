@@ -1,11 +1,23 @@
-<h1>welcome to Bookers !!</h1>
-<p>Find me in app/views/homes/top.html.erb
+<html>
+<body>
+ <h1>welcome to Bookers !!</h1>
+  <p>In Bookers,<br>
+    
+    you can share and exchange your opinions , inpressions , and emotions<br>
+    about various books!
+  </p>
 
-In Bookers,
-
-you can share and exchange your opinions , inpressions , and emotions
-
-about various books!
-</p>
+  <header>
+   
+      <li>
+        <%= link_to "新規登録", new_user_registration_path %>
+      </li>
+      <li>
+        <%= link_to "ログイン", new_user_session_path %>
+      </li>
+  </header>
+</body>
 
 CopyRight Infratop.inc
+
+</html>
