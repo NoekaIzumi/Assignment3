@@ -19,24 +19,15 @@
             about various books!</p>
 
             <div class= "btn-wrapper col-10 mx-auto">
+
               <div class="row">
-                
-                <a class="btn btn-block sign_in" href= "new_user_session_path">
-                Log In
-                </a>
+                <%= link_to 'Log In',new_user_session_path,class: "btn btn-info mb-3" %>
               </div>
-              
+
               <div class="row">
-                <%= link_to new_user_registration_path do %>
-                Sign Up
-                <% end %>
+                <%= link_to 'Sign Up', new_user_registration_path,class: "btn btn-success" %>
               </div>
             </div>
-
-
-
-
-
           </div>
         </div>
       </div>
