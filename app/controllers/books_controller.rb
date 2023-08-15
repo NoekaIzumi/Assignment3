@@ -1,16 +1,32 @@
 class BooksController < ApplicationController
-  def top
+  def index
+    @book = Book.new
+    @books = Book.all
   end
 
   def new
     @book = Book.new
   end
 
+  def show
+    @book= Book.find(params[:id])
+  end
+
   def create
     @book = Book.new(book_params)
-    @book.user.id=current_user.id
+    @book.user_id=current_user.id
     @book.save
-    redirect_to book_path
+    redirect_to book_path(@book.id)
+  end
+
+  def destroy
+    book = Book.find(params[:id])
+    book.delete
+    redirect_to books_path
+  end
+  
+  def edit
+    
   end
 
   # ストロングパラメータ
