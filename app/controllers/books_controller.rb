@@ -2,6 +2,7 @@ class BooksController < ApplicationController
   def index
     @book = Book.new
     @books = Book.all
+    @user = User.find(current_user.id)
   end
 
   def new
@@ -10,6 +11,7 @@ class BooksController < ApplicationController
 
   def show
     @book= Book.find(params[:id])
+    @user = User.find(current_user.id)
   end
 
   def create
@@ -24,9 +26,16 @@ class BooksController < ApplicationController
     book.delete
     redirect_to books_path
   end
-  
+
   def edit
-    
+    @book= Book.find(params[:id])
+  end
+
+  def update
+    @book= Book.find(params[:id])
+    @book.update(book_params)
+    redirect_to book_path(@book)
+
   end
 
   # ストロングパラメータ
