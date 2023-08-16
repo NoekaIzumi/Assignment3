@@ -44,7 +44,7 @@
 
       <div class="col-md-8 offset-md-1">
         <h2>Book detail</h2>
-        
+
         <table class="table ">
           <tbody>
             <tr>
@@ -53,7 +53,10 @@
               </td>
               <td><%= link_to @book.title, book_path(@book)%></td>
               <td><%= @book.body %></td>
-              <td><%= link_to "Edit",edit_book_path(@book), class: "btn btn-success" %></td>
+              <td>
+                <% if @book.user == current_user %>
+                 <%= link_to "Edit",edit_book_path(@book), class: "btn btn-success" %></td>
+                <% end %>
               <td>
                 <% if @book.user == current_user %>
                  <%= link_to "Delete", book_path, method: :delete, class: "btn btn-danger" %>
