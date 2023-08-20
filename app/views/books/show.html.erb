@@ -50,7 +50,7 @@
           <tbody>
             <tr>
               <td><%= image_tag @user.get_profile_image(100,100) %><br>
-              <%= link_to @user.name, user_path(@user)%>
+              <%= link_to @book.user.name, user_path(@user)%>
               </td>
               <td><%= link_to @book.title, book_path(@book)%></td>
               <td><%= @book.body %></td>

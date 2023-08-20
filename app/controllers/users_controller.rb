@@ -17,6 +17,7 @@ class UsersController < ApplicationController
   def index
    @users = User.all
    @user = User.find(current_user.id)
+   
    @book =Book.new
   end
 
@@ -27,20 +28,23 @@ class UsersController < ApplicationController
       flash[:notice] = "You have created book successfully."
       redirect_to book_path(@book.id)
     else
-      redirect_to books_path
+      redirect_to books_path, status: :unprocessable_entity
     end
   end
 
   def update
   user = User.find(params[:id])
   unless user.id == current_user.id
-    redirect_to user_path(current_user.id)
+    redirect_to user_path(current_user.id),status: :unprocessable_entity
   end
 
-    @user = User.find(params[:id])
+  @user = User.find(params[:id])
     if @user.update(user_params)
       redirect_to user_path(@user)
       flash[:notice] ="You have updated user successfully."
+    else
+       flash.now[:alert] ="errors prohibited this book from being saved:"
+       render :edit, status: :unprocessable_entity
     end
   end
 
