@@ -36,6 +36,11 @@ class BooksController < ApplicationController
 
   def edit
     @book= Book.find(params[:id])
+
+    @user= @book.user
+     unless @book.user.id == current_user.id
+      redirect_to books_path
+     end
   end
 
   def update
@@ -47,12 +52,17 @@ class BooksController < ApplicationController
        flash.now[:alert] ="errors prohibited this book from being saved:"
        render :edit
     end
+
   end
 
  private
 
   def book_params
     params.require(:book).permit(:title, :body)
+  end
+
+  def user_params
+    params.require(:user).permit(:name, :introduction, :profile_image)
   end
 
 end
